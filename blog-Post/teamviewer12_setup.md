@@ -12,23 +12,24 @@ categories:
 ### Windows平台
 
 > 下载地址： https://share.weiyun.com/5hr0R8X
+  安装时选择个人用途
+
+### Mac平台
+
+> 下载地址： https://share.weiyun.com/5bk4kYk
+  安装时选择个人用途
 
 ### Linux平台
 
 #### RedHat系列（CentOS、Fadera）
 
 > 下载地址： https://share.weiyun.com/5TaQakb
+  安装：root下执行 yum install teamviewer文件名
 
 #### Debian系列（Ubuntu）
 
 > 下载地址： https://share.weiyun.com/5b7DcUW
+  安装教程：参见 https://www.cnblogs.com/wmr95/p/7574615.html
 
 
-
-远程软件Teamviewer12安装教程
-1. Windows： https://share.weiyun.com/5hr0R8X
-   安装时选择个人用途
-2. CentOS\Fadera:  https://share.weiyun.com/5TaQakb
-   安装：root下执行 yum install teamviewer文件名
-3. Ubuntu\Debian：
-   安装教程：https://www.cnblogs.com/wmr95/p/7574615.html
+  
