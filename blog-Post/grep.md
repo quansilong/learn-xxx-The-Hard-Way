@@ -10,6 +10,7 @@ tags:
 categories:
 - Liunx运维
 - Bash编程
+- 系统管理
 ---
 
 
