@@ -5,7 +5,7 @@ tags:
 - Linux
 - Shell
 - bash
-- 分支结构
+- Branch_Structure
 categories:
 - Liunx运维
 - Bash编程

@@ -6,10 +6,9 @@ tags:
 - Shell
 - bash
 - grep
-- 正则表达式
+- Regular_Expression
 categories:
 - Liunx运维
-- Bash编程
 - 系统管理
 ---
 

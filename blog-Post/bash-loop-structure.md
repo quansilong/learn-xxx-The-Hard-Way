@@ -5,7 +5,7 @@ tags:
 - Linux
 - Shell
 - bash
-- 循环结构
+- Loop_Structure
 categories:
 - Liunx运维
 - Bash编程
