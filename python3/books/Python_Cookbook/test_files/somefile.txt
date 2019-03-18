@@ -1,0 +1,18 @@
+Whether you're new to programming or an experienced developer, it's easy to learn and use Python.
+
+Start with our Beginner’s Guide
+
+Download
+Python source code and installers are available for download for all versions!
+
+Latest: Python 3.7.2
+
+Docs
+Documentation for Python's standard library, along with tutorials and guides, are available online.
+
+docs.python.org
+
+Jobs
+Looking for work or have a Python related position that you're trying to hire for? Our relaunched community-run job board is the place to go.
+
+jobs.python.org
