@@ -1,0 +1,41 @@
+# Model for PE   # 描述，不可少   只用来举例子
+
+     10000     atoms   # 原子总数
+      9990     bonds   # 键总数
+      9980     angles   # 键角总数
+      9970     dihedrals    # 二面角总数
+
+         1     atom types   # 原子类型数
+         1     bond types
+         1     angle types
+         1     dihedral types
+
+    0.0000   80.0586 xlo xhi   # 盒子的起止位置，指明大小
+    0.0000   80.0586 ylo yhi
+    0.0000   80.0586 zlo zhi
+
+Masses   # 原子质量：
+
+         1          14.02
+
+Atoms   # 原子信息：atom-id molecule-id type-id x y z
+
+         1         1         1    8.6550   61.6668    5.4094
+         2         1         1    8.6550   60.5849    6.4912
+         3         1         1    7.5731   59.5030    6.4912
+         4         1         1    6.4912   60.5849    6.4912
+
+Bonds    # 键接信息：bond-id，bond-type，id为1的原子和2相连
+
+         1         1         1         2
+         2         1         2         3
+         3         1         3         4
+
+Angles   # 键角信息
+
+         1         1         1         2         3
+         2         1         2         3         4
+
+ihedrals    # 二面角信息
+
+         1         1         1         2         3         4

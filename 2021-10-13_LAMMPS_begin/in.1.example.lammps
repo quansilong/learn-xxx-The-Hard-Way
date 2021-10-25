@@ -1,0 +1,35 @@
+# LAMMPS脚本可以认为是一种脚本程序，lammps解释器一行一行的执行脚本中的命令。
+#   lammps的in脚本可以分为四个部分：   全局参数初始化       initialization
+#                                  定义要模拟的系统     system_definition
+#                                    设置模拟参数         settings
+#                                     运行和分析          running
+#下面是一个例子
+
+
+# Initialization
+units       real        #指定系统单位
+boundary    p p p       #指定PBC
+atom_style  molecular   #指定粒子类型
+
+# Data reading
+read_data   data.1.example.lammps
+
+# Setting->atom
+bond_style  harmonic        #势函数类型
+bond_coeff  1 350 1.53      #势函数参数
+angle_style harmonic
+angle_coeff 1 60  109.5 
+dihedral_style  multi/harmonic
+dihedral_coeff  1 1.73 -4.49 0.776 6.99 0.0
+pair_style  lj/cut
+pair_coeff  1 1 0.112 4.01 10.5
+# Setting->simulation
+velocity    all create 500.0 1231                   #给定初始化速度
+fix 1 all npt temp 500.0 50 iso 0 0 1000 drag 2     #设置npt系综，设置温度
+thermo_style custum step temp press                 #设置log输出模式
+thermo      100                                     #每100步输出一次结构
+timestep    0.5
+run         50000
+unfix 1
+unfix 2
+write_restart restart.1.example.lammps
