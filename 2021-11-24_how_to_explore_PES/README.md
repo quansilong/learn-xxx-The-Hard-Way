@@ -42,14 +42,98 @@
 
   准牛顿法则是使用近似的Hessian矩阵，而不直接计算Hessian矩阵，故称为准牛顿法。而Hessian矩阵的近似算法不同，也就有了不同的准牛顿算法，比较有名的有BFGS，LBFGS，GPmin等等
 
-  **GPmin**是使用高斯过程(Gaussian Process, GP)来生成一个势能面 加速BFGS算法的一种优化方法
+  **GPmin**是使用高斯过程(Gaussian Process, GP)来生成一个势能面的机器学习预测模型，并使用该模型加速BFGS算法的一种优化方法。值得注意的是，在进行GP训练的过程中，程序需要保留以往所有的单点计算结果，因此需要的内存量很大【内存占用量复杂度$O(n^2N^2)$，n步N原子体系】。
 
-- #### FIRE 
+- #### MDmin(基于MD方法的最小化算法)
 
+- #### FIRE
+
+  参见[Structural Relaxation Made Simple](https://doi.org/10.1103/PhysRevLett.97.170201)
+  
   
 
 ### 2.2 Molecular Dynamics(分子动力学)
 
 
 
+
+
+
+
 ## 3 Randomness-Based Search
+
+### 3.1 Basic Metropolis MC
+
+基本的Metropolis算法是用于 $NVT$ 系综统计采样的算法，其基本思想为：给体系坐标 $\vec{R}$ 一个随机移动 $d\vec{R}$ ，移动的接受概率为
+$$
+P_{acc}(o\rightarrow n) = min[1, exp(-\frac{U(n)-U(o)}{k_B T})]
+$$
+随机位移 $d\vec{R}$ 的生成决定BMMC的搜索效率，不适当的随机位移会浪费大量的算力在无用的高能结构上。
+
+### 3.2 Off-Lattice KMC(aKMC by Henkelman)
+
+动态的搜索过渡态，并记录事件表格。
+
+
+
+
+
+## 4 Forces-Randomness-Mixing-Based Search
+
+### 4.1 Stochastic Surface Walk(SSW)
+
+SSW算法包含两个循环：外循环是Metropolis MC算法，内循环是一个爬坡的过程。具体算法如下：
+
+1. 生成当前极小点 $\vec{R_i^m}$ 随机初始方向 $\vec{N_i^0}$，设置爬坡计数$n=1$和初始爬坡位置$\vec{R_t^0}= \vec{R_i^m}$；
+2. 开始进行爬坡循环， 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
