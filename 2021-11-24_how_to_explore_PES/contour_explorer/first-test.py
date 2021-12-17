@@ -4,28 +4,31 @@
 # source code:  https://wiki.fysik.dtu.dk/ase/_modules/ase/md/contour_exploration.html#ContourExploration
 
 from ase.md.contour_exploration import ContourExploration as Contour
-from ase.build import bulk, molecule
+from ase.build import bulk, molecule, add_vacuum
 from ase.calculators.emt import EMT
 
-
+# 1. perform contour exploration
 #atoms = molecule("CH3CH2OH")
 atoms = bulk("Pd" , "fcc", 3.5, cubic=True)
-atoms *= (2,2,2)
+atoms *= (4,4,2)
+add_vacuum(atoms, 10)
 atoms.pbc = True
 atoms.calc = EMT()
-test = Contour(atoms,
-    maxstep=0.5,        # 每次迭代中，原子的最大可移动距离
-    parallel_drift=0.1, # 每次迭代中，与等高线平行但是方向随机的部分【用于打破对称性】
-    energy_target=35., # 恒势能器尝试保持的系统目标势能，默认是初始构型的势能
-    angle_limit=20,     # 使用曲率改变方向的最大角度
-                        #       通常小于30度就可以给出合理的结果，
-                        #       且角度越小恒势能的精度也越高，默认是20度
-    potentiostat_step_scale=None,   # 恒势能器的步长缩放系数。
-                        #       恒势能步长是由当前势能、目标势能和当前受力
-                        #       线性外推得到的。该系数大于1.0会过矫正，而小于1.0会欠矫正。
-                        #       默认情况下，会根据parallel_drift的值来调整这个数值。
-    #remove_translation=True,       #
-    logfile='-',
-    trajectory="a.traj"
-    )
-test.run(1000)
+#test = Contour(atoms,
+#    energy_target=None,
+#    remove_translation=True,
+#    logfile='-',
+#    trajectory="a.traj"
+#    )
+#test.run(1000)
+
+# 2. wrap atoms
+from ase.io import read, iread
+from ase.io.trajectory import Trajectory
+def wrap_traj(ofname, nfname):
+    traj = Trajectory(nfname, "w")
+    for frame in iread(ofname):
+        frame.wrap()
+        traj.write(frame,)
+wrap_traj("a.traj", "b.traj")
+
